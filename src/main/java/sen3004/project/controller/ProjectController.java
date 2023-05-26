@@ -47,13 +47,7 @@ public class ProjectController {
         return mv;
     }
 
-    @GetMapping("/ratemyprofessor/{name}")
-    public ModelAndView getRating(@PathVariable String name){
-        ModelAndView mv=new ModelAndView("get-rating");
-        mv.addObject("professor",service.findProfessorByName(name));
-
-        return mv;
-    }
+  
 
     @GetMapping("/professor/delete/{id}")
     public ModelAndView deleteProfessor(@PathVariable long id){
