@@ -4,22 +4,22 @@
 <head>
 	<link rel="stylesheet" href="/css/style.css">
 	<meta charset="UTF-8">
-	<title>Professor-List</title>
+	<title th:text="#{professor-listtitle}"></title>
 </head>
 
 <body>
-	<h2>Professor-List</h2>
-	<p>Thank you ! These are List of professors stored in our database:</p>
+	<h2 th:text="#{professor-listHeader}"></h2>
+	<p th:text="#{professor-listDiscription}"></p>
     <div th:unless="${#lists.isEmpty(professor)}">
       <table class="bordered">
          <tr>
             <th></th>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Date Of Birth</th>
-            <th>Rating</th>
-            <th>Department</th>
-            <th>Comments</th>
+            <th th:text="#{professor-listFirstName}"></th>
+            <th th:text="#{professor-listLastName}"></th>
+            <th th:text="#{professor-listDob}"></th>
+            <th th:text="#{professor-listRating}"></th>
+            <th th:text="#{professor-listDepartment}"></th>
+            <th th:text="#{professor-listComments}"></th>
             <th></th>
          </tr>
 
@@ -31,16 +31,17 @@
             <td th:text="${p.rating}"></td>
             <td th:text="${p.department}"></td>
             <td th:text="${p.comments}"></td>
-            <td><a th:href="'/professor/' + ${p.id}">Info</a></td>
+            <td><a th:href="'/professor/' + ${p.id}"><p th:text="#{professor-listInfo}"></p></a></td>
          </tr>
       </table>
     </div>
 
     <div th:if="${#lists.isEmpty(professor)}">
-        <p class="small-italic">No data found.</p>
+        <p class="small-italic"><p th:text="#{professor-listNoData}"></p></p>
     </div>
 
-    <p><a href="/ratemyprofessor/new">Add another rating</a></p>
+    <p><a href="/ratemyprofessor/new"><p th:text="#{professor-listAddData}"></p></a></p>
+    <p><a href="?language=tr">Türkçe</a> | <a href="?language=en">English</a></p>
 
 </body>
 </html>

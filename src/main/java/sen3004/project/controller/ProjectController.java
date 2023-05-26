@@ -12,10 +12,15 @@ import org.springframework.web.servlet.ModelAndView;
 import jakarta.validation.Valid;
 import sen3004.project.model.Professor;
 import sen3004.project.service.ProjectService;
+import sen3004.project.validator.RateprofessorValidator;
 
 @Controller
 public class ProjectController {
 
+
+    @Autowired
+    RateprofessorValidator rpv;
+    
     @Autowired
     ProjectService service;
     
@@ -63,7 +68,7 @@ public class ProjectController {
 
         ModelAndView mv =new ModelAndView();
         mv.addObject("professor", professor);
-
+        rpv.validate(professor, result);
         if(result.hasErrors()){
            mv.setViewName("new-rating");
         }

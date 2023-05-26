@@ -4,46 +4,46 @@
 <head>
 	<link rel="stylesheet" href="/css/style.css">
 	<meta charset="UTF-8">
-	<title>Rate My Professor - New Rating</title>
+	<title th:text="#{new-ratingtitle}"></title>
 </head>
 
 <body>
-	<h2>Rate My Professor - Input Form</h2>
-	<p>Please fill the rating form:</p>
+	<h2 th:text="'Rate my Professor - ' + #{new-ratingHeader}"></h2>
+	<p th:text="#{new-ratingDiscription}"></p>
 	<form action="/ratemyprofessor/add" method="post" th:object="${professor}">
 		<table>
 			<tr>
-				<td>First Name:</td>
+				<td th:text="#{new-ratingFirstName}"></td>
 				<td><input type="text" th:field="*{firstName}"></td>
 				<td th:errors="*{firstName}" class="error"></td>
 			</tr>
 
 			<tr>
-				<td>Last Name:</td>
+				<td th:text="#{new-ratingLastName}"></td>
 				<td><input type="text" th:field="*{lastName}"></td>
 				<td th:errors="*{lastName}" class="error"></td>
 			</tr>
 
 			<tr>
-				<td>Date of Birth:</td>
+				<td th:text="#{new-ratingDob}"></td>
 				<td><input type="text" th:field="*{dateOfBirth}"></td>
 				<td th:errors="*{dateOfBirth}" class="error"></td>
 			</tr>
 
             <tr>
-				<td>Rating:</td>
+				<td th:text="#{new-ratingRating}"></td>
 				<td><input type="number" th:field="*{rating}"></td>
 				<td th:errors="*{rating}" class="error"></td>
 			</tr>
 
             <tr>
-				<td>Department:</td>
+				<td th:text="#{new-ratingDepartment}"></td>
 				<td><input type="text" th:field="*{department}"></td>
 				<td th:errors="*{department}" class="error"></td>
 			</tr>
 
             <tr>
-				<td>Comments:</td>
+				<td th:text="#{new-ratingComments}"></td>
 				<td> <textarea th:field="*{comments}"></textarea></td>
 			</tr>
 
@@ -52,6 +52,10 @@
 			</tr>
 		</table>
 	</form>
+
+    <p><a href="/list-professor"><p th:text="#{view-professorList}"></p></a></p>
+	<p><a href="?language=tr">Türkçe</a> | <a href="?language=en">English</a></p>
+
 </body>
 
 </html>
