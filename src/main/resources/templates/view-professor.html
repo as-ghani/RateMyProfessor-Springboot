@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<link rel="stylesheet" href="/css/style.css">
+	<meta charset="UTF-8">
+	<title> Professor info </title>
+</head>
+
+<body>
+    <h2>Professor Info</h2>
+    <table>
+
+      <tr>
+        <td>Full Name:</td>
+        <td th:text="${professor.firstName} +' '+ ${professor.lastName}" ></td>
+        
+      </tr>
+
+      <tr>
+        <td>Date of Birth:</td>
+        <td>
+            <span th:text="${#temporals.format(professor.dateOfBirth, 'dd-MM-yyyy')}"></span>
+        </td>
+      </tr>
+
+      <tr>
+        <td>Rating:</td>
+        <td th:text="${professor.rating}"></td>
+      </tr>
+
+      <tr>
+        <td>Department:</td>
+        <td th:text="${professor.department}"></td>
+      </tr>
+
+      <tr>
+        <td>Comment:</td>
+        <td th:text="${professor.comments}"></td>
+      </tr>
+    </table>
+    
+    <p><a href="/list-professor">Show List</a> | <a href="/ratemyprofessor/new">Add a new rating</a></p>
+
+</body>

@@ -1,0 +1,1 @@
+create table professor(id identity primary key,fname varchar(50),lname varchar(50),dob date,rate Number,dept varchar(50),comment text);
